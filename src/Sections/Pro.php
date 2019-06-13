@@ -32,7 +32,7 @@ class Pro extends WP_Customize_Section {
 	 * @access public
 	 * @var    string
 	 */
-	public $pro_text = '';
+	public $button_text = '';
 
 	/**
 	 * Custom pro button URL.
@@ -41,7 +41,7 @@ class Pro extends WP_Customize_Section {
 	 * @access public
 	 * @var    string
 	 */
-	public $pro_url = '';
+	public $button_url = '';
 
 	/**
 	 * Default priority of the section.
@@ -62,8 +62,19 @@ class Pro extends WP_Customize_Section {
 	public function json() {
 		$json = parent::json();
 
-		$json['pro_text'] = $this->pro_text;
-		$json['pro_url']  = esc_url( $this->pro_url );
+		$theme = wp_get_theme();
+
+		$json['button_text'] = esc_html(
+			$this->button_text
+			? $this->button_text
+			: $theme->get( 'Name' )
+		);
+
+		$json['button_url']  = esc_url(
+			$this->button_url
+			? $this->button_url
+			: $theme->get( 'ThemeURI' )
+		);
 
 		return $json;
 	}
@@ -82,8 +93,8 @@ class Pro extends WP_Customize_Section {
 			<h3 class="accordion-section-title">
 				{{ data.title }}
 
-				<# if ( data.pro_text && data.pro_url ) { #>
-					<a href="{{ data.pro_url }}" class="button button-secondary alignright" target="_blank">{{ data.pro_text }}</a>
+				<# if ( data.button_text && data.button_url ) { #>
+					<a href="{{ data.button_url }}" class="button button-secondary alignright" target="_blank">{{ data.button_text }}</a>
 				<# } #>
 			</h3>
 		</li>

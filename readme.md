@@ -20,9 +20,9 @@ add_action( 'customize_register', function( WP_Customize_Manager $manager ) {
 
 	$manager->add_section(
 		new Pro( $manager, 'themeslug_pro', [
-			'title'    => __( 'ThemeName Pro', 'themeslug' ),
-			'pro_text' => __( 'Go Pro',        'themeslug' ),
-			'pro_url'  => 'http://example.com'
+			'title'       => __( 'ThemeName Pro', 'themeslug' ),
+			'button_text' => __( 'Go Pro',        'themeslug' ),
+			'button_url'  => 'http://example.com'
 		] )
 	);
 
@@ -51,3 +51,10 @@ add_action( 'customize_controls_enqueue_scripts', function() {
 
 } );
 ```
+
+### Arguments
+
+The `Pro` section accepts all the same arguments as a normal `WP_Customize_Section`.  However, two additional arguments have been added.
+
+- `'button_text'` - The text to display for the section button.  Defaults to the active theme name.
+- `'button_url'` - The URL to use for the section button.  Defaults to the theme URI.
