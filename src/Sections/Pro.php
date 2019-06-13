@@ -1,4 +1,14 @@
 <?php
+/**
+ * Pro Customize Section Class.
+ *
+ * Adds a custom "Pro" section for the WordPress customizer.
+ *
+ * @author    WPTRT <themes@wordpress.org>
+ * @copyright 2019 WPTRT
+ * @license   https://www.gnu.org/licenses/gpl-2.0.html GPL-2.0-or-later
+ * @link      https://github.com/WPTRT/wptrt-customize-pro
+ */
 
 namespace WPTRT\CustomizePro\Sections;
 
