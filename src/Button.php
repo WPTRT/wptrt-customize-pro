@@ -57,12 +57,24 @@ class Button extends WP_Customize_Section {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return void
+	 * @return array
 	 */
 	public function json() {
-		$json = parent::json();
 
-		$theme = wp_get_theme();
+		$json       = parent::json();
+		$theme      = wp_get_theme();
+		$button_url = $this->button_url;
+
+		// Fall back to the `Theme URI` defined in `style.css`.
+		if ( ! $this->button_url && $theme->get( 'ThemeURI' ) ) {
+
+			$button_url = $theme->get( 'ThemeURI' );
+
+		// Fall back to the `Author URI` defined in `style.css`.
+		} elseif ( ! $this->button_url && $theme->get( 'AuthorURI' ) ) {
+
+			$button_url = $theme->get( 'AuthorURI' );
+		}
 
 		$json['button_text'] = esc_html(
 			$this->button_text
@@ -70,11 +82,7 @@ class Button extends WP_Customize_Section {
 			: $theme->get( 'Name' )
 		);
 
-		$json['button_url']  = esc_url(
-			$this->button_url
-			? $this->button_url
-			: $theme->get( 'ThemeURI' )
-		);
+		$json['button_url']  = esc_url( $button_url );
 
 		return $json;
 	}
