@@ -10,11 +10,11 @@
  * @link      https://github.com/WPTRT/wptrt-customize-pro
  */
 
-namespace WPTRT\CustomizePro\Sections;
+namespace WPTRT\Customize\Section;
 
 use WP_Customize_Section;
 
-class Pro extends WP_Customize_Section {
+class Button extends WP_Customize_Section {
 
 	/**
 	 * The type of customize section being rendered.
@@ -23,7 +23,7 @@ class Pro extends WP_Customize_Section {
 	 * @access public
 	 * @var    string
 	 */
-	public $type = 'wptrt-customize-pro';
+	public $type = 'wptrt-button';
 
 	/**
 	 * Custom button text to output.

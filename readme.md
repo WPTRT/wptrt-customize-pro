@@ -1,6 +1,6 @@
-# WPTRT Customize Pro
+# WPTRT Customize Section Button
 
-This is a module for theme authors to use for creating a "pro" or "upsell" section in the customizer.
+This is a custom section class for the WordPress customizer, which allows theme authors to build a section that has a "button."  It's primary purpose is for providing a standardized method of creating a "pro" or "upsell" section in the customizer.  However, it can technically be used to link to anywhere.
 
 You'll need to use an autoloader with this. Ideally, this would be [Composer](https://getcomposer.org).  However, we have a [basic autoloader](https://github.com/WPTRT/wptrt-autoload) available to include with themes if needed.
 
@@ -9,17 +9,16 @@ You'll need to use an autoloader with this. Ideally, this would be [Composer](ht
 The following code should be integrated within your theme's existing customizer code.
 
 ```php
-use WP_Customize_Manager;
-use WPTRT\CustomizePro\Sections\Pro;
+use WPTRT\Customize\Section\Button;
 
-// Register the "pro" section.
+// Register the "button" section.
 
-add_action( 'customize_register', function( WP_Customize_Manager $manager ) {
+add_action( 'customize_register', function( $manager ) {
 
-	$manager->register_section_type( Pro::class );
+	$manager->register_section_type( Button::class );
 
 	$manager->add_section(
-		new Pro( $manager, 'themeslug_pro', [
+		new Button( $manager, 'themeslug_pro', [
 			'title'       => __( 'ThemeName Pro', 'themeslug' ),
 			'button_text' => __( 'Go Pro',        'themeslug' ),
 			'button_url'  => 'http://example.com'
@@ -35,16 +34,16 @@ add_action( 'customize_controls_enqueue_scripts', function() {
 	$version = wp_get_theme()->get( 'Version' );
 
 	wp_enqueue_script(
-		'wptrt-customize-pro',
-		get_theme_file_uri( 'path/to/wptrt-customize-pro/public/js/customize-controls.js' ),
+		'wptrt-customize-section-button',
+		get_theme_file_uri( 'path/to/customize-section-button/public/js/customize-controls.js' ),
 		[ 'customize-controls' ],
 		$version,
 		true
 	);
 
 	wp_enqueue_style(
-		'wptrt-customize-pro',
-		get_theme_file_uri( 'path/to/wptrt-customize-pro/public/css/customize-controls.css' ),
+		'wptrt-customize-section-button',
+		get_theme_file_uri( 'path/to/customize-section-button/public/css/customize-controls.css' ),
 		$version,
 		null
 	);
@@ -54,7 +53,7 @@ add_action( 'customize_controls_enqueue_scripts', function() {
 
 ### Arguments
 
-The `Pro` section accepts all the same arguments as a normal `WP_Customize_Section`.  However, two additional arguments have been added.
+The `Button` section accepts all the same arguments as a normal `WP_Customize_Section`.  However, two additional arguments have been added.
 
 - `'button_text'` - The text to display for the section button.  Defaults to the active theme name.
-- `'button_url'` - The URL to use for the section button.  Defaults to the theme URI.
+- `'button_url'` - The URL to use for the section button.  Falls back to the `Theme URI` or the `Author URI`.
