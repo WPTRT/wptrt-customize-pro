@@ -42,8 +42,8 @@ add_action( 'customize_controls_enqueue_scripts', function() {
 	wp_enqueue_style(
 		'wptrt-customize-section-button',
 		get_theme_file_uri( 'path/to/customize-section-button/public/css/customize-controls.css' ),
-		$version,
-		null
+		[ 'customize-controls' ],
+ 		$version
 	);
 
 } );
