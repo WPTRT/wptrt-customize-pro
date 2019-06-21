@@ -1,8 +1,8 @@
 <?php
 /**
- * Pro Customize Section Class.
+ * Customize Section Button Class.
  *
- * Adds a custom "Pro" section for the WordPress customizer.
+ * Adds a custom "button" section to the WordPress customizer.
  *
  * @author    WPTRT <themes@wordpress.org>
  * @copyright 2019 WPTRT
@@ -35,7 +35,7 @@ class Button extends WP_Customize_Section {
 	public $button_text = '';
 
 	/**
-	 * Custom pro button URL.
+	 * Custom button URL to output.
 	 *
 	 * @since  1.0.0
 	 * @access public
