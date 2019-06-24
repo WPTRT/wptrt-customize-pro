@@ -60,6 +60,14 @@ The `Button` section accepts all the same arguments as a normal `WP_Customize_Se
 
 You'll need to use an autoloader with this. Ideally, this would be [Composer](https://getcomposer.org).  However, we have a [basic autoloader](https://github.com/WPTRT/autoload) available to include with themes if needed.
 
+### Composer
+
+From the command line:
+
+```sh
+composer require wptrt/customize-section-button
+```
+
 ### WPTRT Autoloader
 
 If using the WPTRT autoloader, use the following code:
