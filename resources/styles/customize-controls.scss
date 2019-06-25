@@ -1,0 +1,32 @@
+$section:(
+  'section-active-bg-color': $base-white-color,
+);
+
+.control-section-wptrt-customize-pro {
+	.accordion-section-title {
+		&::hover {
+			background-color: map-get( $section, 'section-active-bg-color' );
+		}
+
+		&::focus {
+			background-color: map-get( $section, 'section-active-bg-color' );
+		}
+
+		.button {
+			margin-top:  -4px;
+			font-weight: 400;
+			margin-left: 8px;
+		}
+	}
+}
+
+.rtl {
+	.control-section-wptrt-customize-pro {
+		.accordion-section-title {
+			.button {
+				margin-left:  0;
+				margin-right: 8px;
+			}
+		}
+	}
+}
