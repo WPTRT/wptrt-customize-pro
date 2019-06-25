@@ -1,0 +1,14 @@
+////
+/// Customize controls stylesheet.
+///
+/// This is the primary stylesheet for the customize controls panel. Use this
+/// for importing styles for custom panels, sections, and controls.
+///
+/// @group  Styles
+/// @author WPTRT <themes@wordpress.org>
+/// @link   https://github.com/WPTRT/customize-section-button
+////
+
+// Import components.
+
+@import 'customize-controls/section-button';

@@ -1,11 +1,14 @@
+/**
+ * Customize Controls.
+ *
+ * This is the primary script for the customize controls panel. Use this file
+ * importing scripts for custom panels, sections, and controls.
+ *
+ * @package   CustomizeSectionButton
+ * @author    WPTRT <themes@wordpress.org>
+ * @copyright 2019 WPTRT
+ * @license   https://www.gnu.org/licenses/gpl-2.0.html GPL-2.0-or-later
+ * @link      https://github.com/WPTRT/customize-section-button
+ */
 
-wp.customize.sectionConstructor['wptrt-button'] = wp.customize.Section.extend( {
-
-	// No events for this type of section.
-	attachEvents: function () {},
-
-	// Always make the section active.
-	isContextuallyActive: function () {
-		return true;
-	}
-} );
+import sectionButton from './customize-controls/section-button';

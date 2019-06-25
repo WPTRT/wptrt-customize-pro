@@ -1,0 +1,35 @@
+////
+/// Button section.
+///
+/// @group  Components
+/// @author WPTRT <themes@wordpress.org>
+/// @link   https://github.com/WPTRT/customize-section-button
+////
+
+.control-section-wptrt-button {
+
+	.accordion-section-title {
+
+		// Make sure that the background color doesn't change if the
+		// section title is hovered or focused because this is an
+		// non-expandable section.
+		&:hover,
+		&:focus {
+			background-color: #fff;
+		}
+
+		// Adjusts the button to make sure it's vertically aligned in
+		// the section title and provide some margin horizontally to
+		// keep text from butting against it.
+		.button {
+			margin-top:  -4px;
+			margin-left: 8px;
+			font-weight: 400;
+
+			.rtl & {
+				margin-left:  0;
+				margin-right: 8px;
+			}
+		}
+	}
+}
