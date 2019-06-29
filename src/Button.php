@@ -76,12 +76,7 @@ class Button extends WP_Customize_Section {
 			$button_url = $theme->get( 'AuthorURI' );
 		}
 
-		$json['button_text'] = esc_html(
-			$this->button_text
-			? $this->button_text
-			: $theme->get( 'Name' )
-		);
-
+		$json['button_text'] = $this->button_text ? $this->button_text : $theme->get( 'Name' );
 		$json['button_url']  = esc_url( $button_url );
 
 		return $json;
