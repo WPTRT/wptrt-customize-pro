@@ -1,12 +1,15 @@
 # WPTRT Customize Section Button
 
-This is a custom section class for the WordPress customizer, which allows theme authors to build a section that has a "button."  It's primary purpose is for providing a standardized method of creating a "pro" or "upsell" section in the customizer.  However, it can technically be used to link to anywhere.
+This is a custom section class for the WordPress customizer, which allows theme authors to build a section that has a "button."  Its primary purpose is for providing a standardized method of creating a "pro" or "upsell" section in the customizer.  However, it can technically be used to link to anywhere.
 
 ## Usage
 
 The following code should be integrated within your theme's existing customizer code.
 
 ```php
+// Use statements must come after the `namespace` statement at the top of the
+// file but before any other code.
+
 use WPTRT\Customize\Section\Button;
 
 // Register the "button" section.
@@ -24,7 +27,27 @@ add_action( 'customize_register', function( $manager ) {
 	);
 
 } );
+```
 
+### Arguments
+
+The `Button` section accepts all the same arguments as a normal `WP_Customize_Section`.  However, two additional arguments have been added.
+
+- `'button_text'` - The text to display for the section button.  Defaults to the active theme name.
+- `'button_url'` - The URL to use for the section button.  Falls back to the `Theme URI` or the `Author URI`.
+
+### Loading Required CSS and JS
+
+Both the development and production versions of the CSS and JS files are available.
+
+To avoid loading additional resources, we encourage theme authors to import the following files into their own build processes for their customize CSS and JS:
+
+- `/path/to/customize-section-button/resources/js/customize-controls.js`
+- `/path/to/customize-section-button/resources/scss/customize-controls.scss`.
+
+However, if you decide to enqueue the production assets directly, integrate the following into your customizer code.
+
+```php
 // Load the JS and CSS.
 
 add_action( 'customize_controls_enqueue_scripts', function() {
@@ -48,13 +71,6 @@ add_action( 'customize_controls_enqueue_scripts', function() {
 
 } );
 ```
-
-### Arguments
-
-The `Button` section accepts all the same arguments as a normal `WP_Customize_Section`.  However, two additional arguments have been added.
-
-- `'button_text'` - The text to display for the section button.  Defaults to the active theme name.
-- `'button_url'` - The URL to use for the section button.  Falls back to the `Theme URI` or the `Author URI`.
 
 ## Autoloading
 
