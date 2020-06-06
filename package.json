@@ -21,7 +21,7 @@
 		"cross-env": "^5.2.0",
 		"laravel-mix": "^4.0.16",
 		"postcss-preset-env": "^6.6.0",
-		"sass": "^1.22.0",
+		"sass": "^1.26.8",
 		"sass-loader": "^7.1.0",
 		"vue-template-compiler": "^2.6.10"
 	}
