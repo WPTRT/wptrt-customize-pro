@@ -66,12 +66,12 @@ class Button extends WP_Customize_Section {
 		$button_url = $this->button_url;
 
 		// Fall back to the `Theme URI` defined in `style.css`.
-		if ( ! $this->button_url && $theme->get( 'ThemeURI' ) ) {
+		if ( ! $button_url && $theme->get( 'ThemeURI' ) ) {
 
 			$button_url = $theme->get( 'ThemeURI' );
 
 		// Fall back to the `Author URI` defined in `style.css`.
-		} elseif ( ! $this->button_url && $theme->get( 'AuthorURI' ) ) {
+		} elseif ( ! $button_url && $theme->get( 'AuthorURI' ) ) {
 
 			$button_url = $theme->get( 'AuthorURI' );
 		}
