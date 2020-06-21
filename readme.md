@@ -93,7 +93,7 @@ include get_theme_file_path( 'path/to/autoload/src/Loader.php' );
 
 $loader = new \WPTRT\Autoload\Loader();
 
-$loader->add( 'WPTRT\\Customize\\Section', get_theme_file_path( 'path/to/customize-section-button/src' ) );
+$loader->add( 'WPTRT\\Customize\\', get_theme_file_path( 'path/to/customize-section-button/src' ) );
 
 $loader->register();
 ```
